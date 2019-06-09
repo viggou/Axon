@@ -2,6 +2,7 @@
   "ENABLED_RESPRING" = "Enabled (Respring required)";
   "ENABLED" = "Enabled";
   "HAPTIC_FEEDBACK" = "Haptic feedback";
+  "DARK_MODE" = "Dark mode";
 
   "STYLE" = "Style";
   "DEFAULT" = "Default";

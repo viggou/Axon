@@ -166,7 +166,8 @@
                     self.badgeLabel.alpha = 1.0;
                     break;
                 default:
-                    self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
+                    if (!self.darkMode) self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
+                    else self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
             }
         } completion:NULL];
     } else {

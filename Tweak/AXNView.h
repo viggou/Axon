@@ -13,6 +13,7 @@
 @property (nonatomic, assign) BOOL hapticFeedback;
 @property (nonatomic, assign) BOOL badgesEnabled;
 @property (nonatomic, assign) BOOL badgesShowBackground;
+@property (nonatomic, assign) BOOL darkMode;
 @property (nonatomic, assign) NSInteger selectionStyle;
 @property (nonatomic, assign) NSInteger style;
 @property (nonatomic, assign) NSInteger sortingMode;

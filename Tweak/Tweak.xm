@@ -7,6 +7,7 @@ BOOL enabled;
 BOOL badgesEnabled;
 BOOL badgesShowBackground;
 BOOL hapticFeedback;
+BOOL darkMode;
 NSInteger sortingMode;
 NSInteger selectionStyle;
 NSInteger style;
@@ -85,6 +86,7 @@ NCNotificationDispatcher *dispatcher = nil;
     self.axnView.selectionStyle = selectionStyle;
     self.axnView.style = style;
     self.axnView.sortingMode = sortingMode;
+    self.axnView.darkMode = darkMode;
     [AXNManager sharedInstance].view = self.axnView;
 
     if (clvc) [AXNManager sharedInstance].view.clvc = clvc;
@@ -307,6 +309,7 @@ static void displayStatusChanged(CFNotificationCenterRef center, void *observer,
     [preferences registerBool:&hapticFeedback default:YES forKey:@"HapticFeedback"];
     [preferences registerBool:&badgesEnabled default:YES forKey:@"BadgesEnabled"];
     [preferences registerBool:&badgesShowBackground default:YES forKey:@"BadgesShowBackground"];
+    [preferences registerBool:&darkMode default:NO forKey:@"DarkMode"];
     [preferences registerInteger:&sortingMode default:0 forKey:@"SortingMode"];
     [preferences registerInteger:&selectionStyle default:0 forKey:@"SelectionStyle"];
     [preferences registerInteger:&style default:0 forKey:@"Style"];
@@ -318,6 +321,7 @@ static void displayStatusChanged(CFNotificationCenterRef center, void *observer,
             [AXNManager sharedInstance].view.selectionStyle = selectionStyle;
             [AXNManager sharedInstance].view.sortingMode = sortingMode;
             [AXNManager sharedInstance].view.style = style;
+            [AXNManager sharedInstance].view.darkMode = darkMode;
         }
     }];
 
