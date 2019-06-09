@@ -158,7 +158,7 @@ NCNotificationDispatcher *dispatcher = nil;
 /* Replace notification management functions with our logic. */
 
 -(bool)insertNotificationRequest:(NCNotificationRequest *)req forCoalescedNotification:(id)arg2 {
-    if (self.axnAllowChanges) return %orig;     // This condition is true when Axon is inserting filtered notifications for display.
+    if (self.axnAllowChanges) return %orig;     // This condition is true when Axon is updating filtered notifications for display.
     [[AXNManager sharedInstance] insertNotificationRequest:req];
     [[AXNManager sharedInstance].view refresh];
 
@@ -171,7 +171,7 @@ NCNotificationDispatcher *dispatcher = nil;
 }
 
 -(bool)removeNotificationRequest:(NCNotificationRequest *)req forCoalescedNotification:(id)arg2 {
-    if (self.axnAllowChanges) return %orig;     // This condition is true when Axon is inserting filtered notifications for display.
+    if (self.axnAllowChanges) return %orig;     // This condition is true when Axon is updating filtered notifications for display.
     [[AXNManager sharedInstance] removeNotificationRequest:req];
     [[AXNManager sharedInstance].view refresh];
 
@@ -184,7 +184,7 @@ NCNotificationDispatcher *dispatcher = nil;
 }
 
 -(bool)modifyNotificationRequest:(NCNotificationRequest *)req forCoalescedNotification:(id)arg2 {
-    if (self.axnAllowChanges) return %orig;     // This condition is true when Axon is inserting filtered notifications for display.
+    if (self.axnAllowChanges) return %orig;     // This condition is true when Axon is updating filtered notifications for display.
     [[AXNManager sharedInstance] modifyNotificationRequest:req];
     [[AXNManager sharedInstance].view refresh];
 
@@ -238,7 +238,20 @@ NCNotificationDispatcher *dispatcher = nil;
 
 %end
 
+%hook NCNotificationListSectionRevealHintView
+
+/* Hide "No older notifications." */
+
+-(void)layoutSubviews {
+    %orig;
+    MSHookIvar<UILabel *>(self, "_revealHintTitle").hidden = YES;
+}
+
+%end
+
 %hook SBDashBoardViewController
+
+/* Hide all notifications on open. */
 
 -(void)viewWillAppear:(BOOL)animated {
     %orig;
@@ -289,6 +302,8 @@ NCNotificationDispatcher *dispatcher = nil;
 %end
 
 %end
+
+/* Hide all notifications on open. */
 
 static void displayStatusChanged(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {
     [[AXNManager sharedInstance].view reset];
