@@ -48,6 +48,10 @@
     }
     self.clvc.axnAllowChanges = NO;
     [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
+
+    [self.clvc forceNotificationHistoryRevealed:NO animated:NO];
+    [self.clvc setNotificationHistorySectionNeedsReload:YES];
+    [self.clvc _reloadNotificationHistorySectionIfNecessary];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -105,6 +109,10 @@
         [self.clvc removeNotificationRequest:req forCoalescedNotification:nil];
     }
     self.clvc.axnAllowChanges = NO;
+
+    [self.clvc forceNotificationHistoryRevealed:NO animated:NO];
+    [self.clvc setNotificationHistorySectionNeedsReload:YES];
+    [self.clvc _reloadNotificationHistorySectionIfNecessary];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
