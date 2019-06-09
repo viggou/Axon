@@ -194,6 +194,11 @@ NCNotificationDispatcher *dispatcher = nil;
     return YES;
 }
 
+-(bool)hasContent {
+    if ([AXNManager sharedInstance].view.list && [[AXNManager sharedInstance].view.list count] > 0) return YES;
+    return %orig;
+}
+
 %end
 
 #pragma mark Compatibility stuff
@@ -203,7 +208,7 @@ NCNotificationDispatcher *dispatcher = nil;
 /* FastUnlockX */
 
 -(BOOL)hasVisibleContent {
-    if (clvc) return [clvc hasContent];
+    if (sbclvc) return [sbclvc hasContent];
     return %orig;
 }
 
@@ -214,7 +219,7 @@ NCNotificationDispatcher *dispatcher = nil;
 /* The only way I know of... AutoUnlockX */
 
 -(BOOL)flashlightOn {
-    if (clvc) return [clvc hasContent];
+    if (sbclvc && [sbclvc hasContent]) return [sbclvc hasContent];
     return %orig;
 }
 

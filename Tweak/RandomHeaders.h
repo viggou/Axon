@@ -60,6 +60,7 @@
 
 @interface SBDashBoardCombinedListViewController : UIViewController
 -(void)_setListHasContent:(BOOL)arg1;
+-(bool)hasContent;
 @end
 
 @interface NCNotificationStore : NSObject
