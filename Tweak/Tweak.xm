@@ -159,6 +159,12 @@ NCNotificationDispatcher *dispatcher = nil;
     if (self.axnAllowChanges) return %orig;     // This condition is true when Axon is inserting filtered notifications for display.
     [[AXNManager sharedInstance] insertNotificationRequest:req];
     [[AXNManager sharedInstance].view refresh];
+
+    if (req.bulletin.sectionID) {
+        NSString *bundleIdentifier = req.bulletin.sectionID;
+        if ([bundleIdentifier isEqualToString:[AXNManager sharedInstance].view.selectedBundleIdentifier]) %orig;
+    }
+    
     return YES;
 }
 
