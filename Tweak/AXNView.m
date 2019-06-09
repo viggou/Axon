@@ -43,6 +43,7 @@
     self.selectedBundleIdentifier = nil;
     self.clvc.axnAllowChanges = YES;
     for (id req in [self.clvc allNotificationRequests]) {
+        [[AXNManager sharedInstance] insertNotificationRequest:req];
         [self.clvc removeNotificationRequest:req forCoalescedNotification:nil];
     }
     self.clvc.axnAllowChanges = NO;

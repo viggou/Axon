@@ -201,6 +201,12 @@ NCNotificationDispatcher *dispatcher = nil;
     return %orig;
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    %orig;
+    [[AXNManager sharedInstance].view reset];
+    [[AXNManager sharedInstance].view refresh];
+}
+
 %end
 
 #pragma mark Compatibility stuff
