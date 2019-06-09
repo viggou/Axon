@@ -225,6 +225,17 @@ NCNotificationDispatcher *dispatcher = nil;
 
 %end
 
+%hook PreferencesManager
+
+/* I'm really sorry lol */
+
++(id)getPrefForKey:(NSString *)key {
+    if ([key isEqualToString:@"DisableIfFlashlight"]) return @(YES);
+    return %orig;
+}
+
+%end
+
 %hook SBDashBoardViewController
 
 -(void)viewWillAppear:(BOOL)animated {
