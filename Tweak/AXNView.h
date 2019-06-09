@@ -21,4 +21,13 @@
 -(void)refresh;
 -(void)reset;
 
+/* Compatibility stuff. */
+-(void)setContentHost:(id)arg1 ;
+-(void)setSizeToMimic:(CGSize)arg1 ;
+-(void)_layoutContentHost;
+-(CGSize)sizeToMimic;
+-(id)contentHost;
+-(void)_updateSizeToMimic;
+-(unsigned long long)_optionsForMainOverlay;
+
 @end

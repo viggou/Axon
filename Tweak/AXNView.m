@@ -175,4 +175,14 @@
     [self.sbclvc _setListHasContent:([self.list count] > 0)];
 }
 
+/* Compatibility stuff to keep it from safe moding. */
+
+-(void)setContentHost:(id)arg1 {}
+-(void)setSizeToMimic:(CGSize)arg1 {}
+-(void)_layoutContentHost {}
+-(CGSize)sizeToMimic { return self.frame.size; }
+-(id)contentHost { return nil; }
+-(void)_updateSizeToMimic {}
+-(unsigned long long)_optionsForMainOverlay { return 0; }
+
 @end
