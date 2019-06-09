@@ -1,0 +1,29 @@
+{
+  "ENABLED_RESPRING" = "Enabled (Respring required)";
+  "ENABLED" = "Enabled";
+  "HAPTIC_FEEDBACK" = "Haptic feedback";
+
+  "STYLE" = "Style";
+  "DEFAULT" = "Default";
+  "PACKED" = "Packed";
+  "COMPACT" = "Compact";
+
+  "SORTING" = "Sorting";
+  "BY_NAME" = "By app name";
+  "BY_COUNT" = "By count";
+
+  "SELECTION_STYLE" = "Selection style";
+  "BACKGROUND" = "Add background";
+  "DIM" = "Dim others";
+
+  "BADGES" = "Badges";
+  "SHOW_BACKGROUND" = "Show background";
+
+  "CREDITS_1" = "Ahmed Bousrih";
+  "CREDITS_1_INFO" = "Designed the icon and banners.";
+
+  "RESPRING" = "Respring";
+  "SOURCE_CODE" = "Source code";
+  "DONATE_TO_NEPETA" = "Donate to Nepeta";
+  "SUPPORT_ME" = "Support me!";
+}
