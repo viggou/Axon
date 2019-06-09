@@ -55,6 +55,7 @@
 -(void)_reloadNotificationHistorySectionIfNecessary;
 -(id)_coalescingIdentifierForNotificationRequest:(id)arg1 ;
 -(bool)hasContent;
+-(void)clearAllCoalescingControlsCells;
 
 @end
 

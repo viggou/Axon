@@ -52,6 +52,7 @@
     [self.clvc forceNotificationHistoryRevealed:NO animated:NO];
     [self.clvc setNotificationHistorySectionNeedsReload:YES];
     [self.clvc _reloadNotificationHistorySectionIfNecessary];
+    if ([self.clvc respondsToSelector:@selector(clearAllCoalescingControlsCells)]) [self.clvc clearAllCoalescingControlsCells];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -113,6 +114,7 @@
     [self.clvc forceNotificationHistoryRevealed:NO animated:NO];
     [self.clvc setNotificationHistorySectionNeedsReload:YES];
     [self.clvc _reloadNotificationHistorySectionIfNecessary];
+    if ([self.clvc respondsToSelector:@selector(clearAllCoalescingControlsCells)]) [self.clvc clearAllCoalescingControlsCells];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
