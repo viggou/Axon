@@ -40,6 +40,11 @@
     }
 
     if (!image) {
+        icon = [model applicationIconForBundleIdentifier:@"com.apple.Preferences"];
+        image = [icon getIconImage:2];
+    }
+
+    if (!image) {
         image = [UIImage _applicationIconImageForBundleIdentifier:bundleIdentifier format:0 scale:[UIScreen mainScreen].scale];
     }
 
