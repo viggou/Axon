@@ -38,16 +38,6 @@ NCNotificationDispatcher *dispatcher = nil;
 
 %end
 
-#pragma mark Disable notification stacking
-
-%hook NCNotificationStore
-
--(id)coalescedNotificationForRequest:(id)arg1 {
-    return nil;
-}
-
-%end
-
 #pragma mark Store dispatcher for future use
 
 %hook SBNCNotificationDispatcher

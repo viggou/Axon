@@ -109,7 +109,7 @@
             for (int i = 0; i < [self.notificationRequests[bundleIdentifier] count]; i++) {
                 NCNotificationRequest *request = self.notificationRequests[bundleIdentifier][i];
                 if (request && [[req notificationIdentifier] isEqualToString:[request notificationIdentifier]]) {
-                    self.notificationRequests[bundleIdentifier] = req;
+                    self.notificationRequests[bundleIdentifier][i] = req;
                     return;
                 }
             }
