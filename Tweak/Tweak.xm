@@ -164,7 +164,7 @@ NCNotificationDispatcher *dispatcher = nil;
         NSString *bundleIdentifier = req.bulletin.sectionID;
         if ([bundleIdentifier isEqualToString:[AXNManager sharedInstance].view.selectedBundleIdentifier]) %orig;
     }
-    
+
     return YES;
 }
 
@@ -203,6 +203,17 @@ NCNotificationDispatcher *dispatcher = nil;
 /* FastUnlockX */
 
 -(BOOL)hasVisibleContent {
+    if (clvc) return [clvc hasContent];
+    return %orig;
+}
+
+%end
+
+%hook SparkAutoUnlockX
+
+/* The only way I know of... AutoUnlockX */
+
+-(BOOL)flashlightOn {
     if (clvc) return [clvc hasContent];
     return %orig;
 }
