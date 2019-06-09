@@ -3,6 +3,7 @@
   "ENABLED" = "Enabled";
   "HAPTIC_FEEDBACK" = "Haptic feedback";
   "DARK_MODE" = "Dark mode";
+  "NO_OLDER_NOTIFICATIONS" = "Hide "No older notifications.""
 
   "STYLE" = "Style";
   "DEFAULT" = "Default";

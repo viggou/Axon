@@ -8,6 +8,7 @@ BOOL badgesEnabled;
 BOOL badgesShowBackground;
 BOOL hapticFeedback;
 BOOL darkMode;
+BOOL noOlderNotifications;
 NSInteger sortingMode;
 NSInteger selectionStyle;
 NSInteger style;
@@ -239,8 +240,13 @@ NCNotificationDispatcher *dispatcher = nil;
 /* Hide "No older notifications." */
 
 -(void)layoutSubviews {
-    %orig;
-    MSHookIvar<UILabel *>(self, "_revealHintTitle").hidden = YES;
+    if (noOlderNotifications) {
+        %orig;
+        MSHookIvar<UILabel *>(self, "_revealHintTitle").hidden = YES;
+    }
+    else {
+        %orig;
+    }
 }
 
 %end
@@ -321,6 +327,7 @@ static void displayStatusChanged(CFNotificationCenterRef center, void *observer,
     [preferences registerBool:&badgesEnabled default:YES forKey:@"BadgesEnabled"];
     [preferences registerBool:&badgesShowBackground default:YES forKey:@"BadgesShowBackground"];
     [preferences registerBool:&darkMode default:NO forKey:@"DarkMode"];
+    [preferences registerBool:&noOlderNotifications default:YES forKey:@"NoOlderNotifications"];
     [preferences registerInteger:&sortingMode default:0 forKey:@"SortingMode"];
     [preferences registerInteger:&selectionStyle default:0 forKey:@"SelectionStyle"];
     [preferences registerInteger:&style default:0 forKey:@"Style"];
